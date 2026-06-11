@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "BusinessIQ Management System",
   "main": "electron/main.js",
-  "homepage": "https://YOUR_GITHUB_USERNAME.github.io/BIQ",
+  "homepage": "https://ORAKA-DGIA.github.io/BIQ",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
