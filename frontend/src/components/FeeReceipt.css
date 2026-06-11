@@ -1,0 +1,321 @@
+/* ── Overlay ── */
+.rc-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,0.5);
+  backdrop-filter: blur(3px);
+  z-index: 500;
+}
+
+/* ── Sheet ── */
+.rc-sheet {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 501;
+  width: min(780px, calc(100vw - 24px));
+  max-height: 92vh;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(15,23,42,0.22);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: rc-pop 0.2s cubic-bezier(.4,0,.2,1);
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  font-size: 13px;
+  color: #0f172a;
+  line-height: 1.5;
+}
+
+@keyframes rc-pop {
+  from { opacity: 0; transform: translate(-50%,-48%) scale(0.97); }
+  to   { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+}
+
+/* ── Top bar ── */
+.rc-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 18px;
+  border-bottom: 2px solid #e2e8f0;
+  background: #fafbff;
+  flex-shrink: 0;
+}
+
+.rc-topbar-title { font-size: 13px; font-weight: 700; color: #0f172a; }
+.rc-topbar-actions { display: flex; align-items: center; gap: 8px; }
+
+.rc-btn-print {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #6366f1, #818cf8);
+  color: #fff; border: none; border-radius: 8px;
+  font-size: 13px; font-weight: 700; cursor: pointer;
+  box-shadow: 0 3px 10px rgba(99,102,241,0.28);
+  transition: all 0.15s;
+}
+.rc-btn-print:hover { background: linear-gradient(135deg,#4f46e5,#6366f1); transform: translateY(-1px); }
+
+.rc-btn-close {
+  width: 30px; height: 30px;
+  border: 1.5px solid #e2e8f0; border-radius: 8px;
+  background: #fff; color: #64748b; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+}
+.rc-btn-close:hover { background: #f1f5f9; color: #0f172a; }
+
+/* ── Body ── */
+.rc-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: 18px;
+  background: #f0f4ff;
+}
+
+.rc-state {
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; padding: 60px 20px;
+  font-size: 13px; color: #94a3b8;
+}
+.rc-err { color: #dc2626; }
+.rc-spinner { animation: spin 0.85s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Document ── */
+.rc-doc {
+  background: #fff;
+  border-radius: 10px;
+  border: 2px solid #0f172a;
+  padding: 24px 28px;
+}
+
+/* ── Header ── */
+.rc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #0f172a;
+}
+
+/* Centre letterhead */
+.rc-letterhead {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.rc-school-name {
+  font-size: 18px;
+  font-weight: 900;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.rc-logo {
+  width: 68px; height: 68px;
+  border-radius: 50%;
+  object-fit: contain;
+  border: 2px solid #e2e8f0;
+  margin: 4px 0;
+}
+
+.rc-school-motto {
+  font-size: 12px;
+  font-style: italic;
+  color: #6366f1;
+  margin-bottom: 4px;
+}
+
+.rc-school-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px 12px;
+}
+.rc-school-contacts span { font-size: 12px; color: #475569; }
+
+/* Right side: receipt info */
+.rc-header-right {
+  text-align: right;
+  flex-shrink: 0;
+  min-width: 148px;
+}
+
+.rc-doc-label {
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.8px;
+  color: #64748b; margin-bottom: 2px;
+}
+
+.rc-receipt-no {
+  font-size: 18px; font-weight: 800;
+  color: #6366f1; letter-spacing: -0.3px;
+}
+
+.rc-issued { font-size: 13px; color: #475569; margin: 3px 0 6px; }
+
+.rc-pill {
+  display: inline-block; padding: 3px 10px;
+  border-radius: 4px; font-size: 11px;
+  font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;
+}
+.rc-pill-paid    { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+.rc-pill-partial { background: #fef9c3; color: #a16207; border: 1px solid #fde68a; }
+
+/* ── Divider ── */
+.rc-hr { border: none; border-top: 1px solid #cbd5e1; margin: 16px 0; }
+
+/* ── Section title ── */
+.rc-section-title {
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.9px;
+  color: #6366f1; margin-bottom: 8px;
+}
+
+/* ── Info grid ── */
+.rc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 2px solid #0f172a;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.rc-grid > div {
+  padding: 12px 14px;
+}
+
+.rc-grid > div:first-child {
+  border-right: 2px solid #0f172a;
+}
+
+/* ── Info table (bordered) ── */
+.rc-info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rc-info-table tr { border-bottom: 1px solid #e2e8f0; }
+.rc-info-table tr:last-child { border-bottom: none; }
+
+.rc-lbl {
+  font-size: 13px; color: #64748b; font-weight: 500;
+  padding: 5px 10px 5px 0;
+  width: 42%; vertical-align: top; white-space: nowrap;
+}
+
+.rc-val {
+  font-size: 13px; color: #0f172a; font-weight: 700;
+  padding: 5px 0; vertical-align: top;
+}
+
+/* ── Fee breakdown table (fully bordered) ── */
+.rc-fee-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 14px;
+  border: 2px solid #0f172a;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.rc-th {
+  padding: 9px 12px;
+  font-size: 12px; font-weight: 700;
+  color: #0f172a; background: #f1f5f9;
+  border-bottom: 2px solid #0f172a;
+  border-right: 1px solid #cbd5e1;
+  white-space: nowrap;
+}
+.rc-th:last-child { border-right: none; }
+.rc-th-l { text-align: left; }
+.rc-th-r { text-align: right; }
+
+.rc-td {
+  padding: 10px 12px;
+  font-size: 13px; vertical-align: middle;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+.rc-td:last-child { border-right: none; }
+
+.rc-td-name { font-weight: 700; color: #0f172a; }
+.rc-td-r    { text-align: right; font-weight: 700; white-space: nowrap; }
+
+.rc-c-indigo { color: #6366f1; }
+.rc-c-green  { color: #15803d; }
+.rc-c-red    { color: #dc2626; }
+
+/* ── Note ── */
+.rc-note {
+  font-size: 13px; color: #475569;
+  background: #f8fafc; border-left: 3px solid #6366f1;
+  padding: 8px 12px; border-radius: 0 6px 6px 0;
+  margin-bottom: 14px;
+}
+
+/* ── Footer ── */
+.rc-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 2px solid #0f172a;
+}
+
+.rc-sig { text-align: left; }
+.rc-sig-line {
+  width: 130px; border-top: 1px solid #0f172a; margin-bottom: 4px;
+}
+.rc-sig-line-r { margin-left: auto; }
+.rc-sig-lbl { font-size: 13px; color: #475569; }
+
+.rc-footer-mid { text-align: center; flex: 1; }
+.rc-footer-school { font-size: 13px; font-weight: 700; color: #0f172a; }
+.rc-footer-sub    { font-size: 12px; color: #64748b; margin-top: 2px; }
+
+.rc-footer-right { text-align: right; }
+
+/* ── Print ── */
+@media print {
+  body * { visibility: hidden; }
+  .rc-sheet, .rc-sheet * { visibility: visible; }
+  .no-print { display: none !important; }
+
+  .rc-sheet {
+    position: absolute; top: 0; left: 0;
+    width: 100%; max-height: none;
+    border-radius: 0; box-shadow: none; transform: none;
+  }
+  .rc-topbar { display: none !important; }
+  .rc-body { padding: 0; background: #fff; overflow: visible; }
+  .rc-doc  { border-radius: 0; padding: 16px 24px; }
+  .rc-fee-table, .rc-grid { page-break-inside: avoid; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .rc-body { padding: 10px; }
+  .rc-doc  { padding: 16px 12px; }
+  .rc-grid { grid-template-columns: 1fr; }
+  .rc-grid > div:first-child { border-right: none; border-bottom: 2px solid #0f172a; }
+  .rc-header { flex-direction: column; align-items: center; gap: 12px; }
+  .rc-header-right { text-align: center; min-width: unset; width: 100%; }
+  .rc-footer { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .rc-footer-mid { text-align: left; }
+  .rc-footer-right { text-align: left; }
+  .rc-sig-line-r { margin-left: 0; }
+}

@@ -1,0 +1,61 @@
+{
+  "name": "businessiq-frontend",
+  "version": "1.0.0",
+  "description": "BusinessIQ Management System",
+  "main": "electron/main.js",
+  "homepage": "https://YOUR_GITHUB_USERNAME.github.io/BIQ",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "build-electron": "npm run build && electron-builder",
+    "capacitor:add": "npx cap add android && npx cap add ios",
+    "capacitor:build": "npm run build && npx cap copy && npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^5.0.0",
+    "@capacitor/core": "^5.0.0",
+    "@capacitor/ios": "^5.0.0",
+    "@imgly/background-removal": "^1.7.0",
+    "localforage": "^1.10.0",
+    "lucide-react": "^1.17.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0",
+    "react-scripts": "5.0.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^5.0.0",
+    "concurrently": "^7.6.0",
+    "electron": "^22.0.0",
+    "electron-builder": "^23.6.0",
+    "gh-pages": "^6.1.1",
+    "wait-on": "^7.0.1"
+  },
+  "build": {
+    "appId": "com.businessiq.app",
+    "productName": "BusinessIQ",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "build/**/*",
+      "electron/**/*"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

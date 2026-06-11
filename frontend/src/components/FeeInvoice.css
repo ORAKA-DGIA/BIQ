@@ -1,0 +1,273 @@
+/* ── Overlay ── */
+.iv-overlay {
+  position: fixed; inset: 0;
+  background: rgba(15,23,42,0.5);
+  backdrop-filter: blur(3px);
+  z-index: 500;
+}
+
+/* ── Sheet ── */
+.iv-sheet {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 501;
+  width: min(780px, calc(100vw - 24px));
+  max-height: 92vh;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(15,23,42,0.22);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  animation: iv-pop 0.2s cubic-bezier(.4,0,.2,1);
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  font-size: 13px; color: #0f172a; line-height: 1.5;
+}
+
+@keyframes iv-pop {
+  from { opacity: 0; transform: translate(-50%,-48%) scale(0.97); }
+  to   { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+}
+
+/* ── Top bar ── */
+.iv-topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 11px 18px;
+  border-bottom: 2px solid #e2e8f0;
+  background: #fafbff; flex-shrink: 0;
+}
+.iv-topbar-title { font-size: 13px; font-weight: 700; color: #0f172a; }
+.iv-topbar-actions { display: flex; align-items: center; gap: 8px; }
+
+.iv-btn-print {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  color: #fff; border: none; border-radius: 8px;
+  font-size: 13px; font-weight: 700; cursor: pointer;
+  box-shadow: 0 3px 10px rgba(220,38,38,0.28);
+  transition: all 0.15s;
+}
+.iv-btn-print:hover { background: linear-gradient(135deg,#b91c1c,#dc2626); transform: translateY(-1px); }
+
+.iv-btn-close {
+  width: 30px; height: 30px;
+  border: 1.5px solid #e2e8f0; border-radius: 8px;
+  background: #fff; color: #64748b; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+}
+.iv-btn-close:hover { background: #f1f5f9; color: #0f172a; }
+
+/* ── Body ── */
+.iv-body { overflow-y: auto; flex: 1; padding: 18px; background: #fff7f7; }
+
+.iv-state {
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; padding: 60px 20px;
+  font-size: 13px; color: #94a3b8;
+}
+.iv-err { color: #dc2626; }
+.iv-spinner { animation: spin 0.85s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Document ── */
+.iv-doc {
+  background: #fff;
+  border-radius: 10px;
+  border: 2px solid #0f172a;
+  padding: 24px 28px;
+}
+
+/* ── Header ── */
+.iv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #0f172a;
+}
+
+.iv-letterhead {
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  gap: 4px;
+}
+
+.iv-school-name {
+  font-size: 18px; font-weight: 900;
+  color: #0f172a; text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.iv-logo {
+  width: 68px; height: 68px; border-radius: 50%;
+  object-fit: contain; border: 2px solid #e2e8f0; margin: 4px 0;
+}
+
+.iv-school-motto { font-size: 12px; font-style: italic; color: #dc2626; margin-bottom: 4px; }
+
+.iv-school-contacts {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 2px 12px;
+}
+.iv-school-contacts span { font-size: 12px; color: #475569; }
+
+.iv-header-right { text-align: right; flex-shrink: 0; min-width: 148px; }
+
+.iv-doc-label {
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.8px;
+  color: #64748b; margin-bottom: 2px;
+}
+
+.iv-invoice-no { font-size: 18px; font-weight: 800; color: #dc2626; letter-spacing: -0.3px; }
+.iv-issued     { font-size: 13px; color: #475569; margin: 3px 0 3px; }
+.iv-due        { font-size: 13px; color: #dc2626; font-weight: 700; margin-bottom: 6px; }
+
+.iv-pill {
+  display: inline-block; padding: 3px 10px;
+  border-radius: 4px; font-size: 11px; font-weight: 800;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5;
+}
+
+/* ── Divider ── */
+.iv-hr { border: none; border-top: 1px solid #cbd5e1; margin: 16px 0; }
+
+/* ── Section title ── */
+.iv-section-title {
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.9px;
+  color: #dc2626; margin-bottom: 8px;
+}
+
+/* ── Info grid ── */
+.iv-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; border: 2px solid #0f172a;
+  border-radius: 6px; overflow: hidden;
+}
+.iv-grid > div { padding: 12px 14px; }
+.iv-grid > div:first-child { border-right: 2px solid #0f172a; }
+
+/* ── Info table ── */
+.iv-info-table { width: 100%; border-collapse: collapse; }
+.iv-info-table tr { border-bottom: 1px solid #e2e8f0; }
+.iv-info-table tr:last-child { border-bottom: none; }
+
+.iv-lbl {
+  font-size: 13px; color: #64748b; font-weight: 500;
+  padding: 5px 10px 5px 0; width: 45%;
+  vertical-align: top; white-space: nowrap;
+}
+.iv-val {
+  font-size: 13px; color: #0f172a; font-weight: 700;
+  padding: 5px 0; vertical-align: top;
+}
+.iv-green { color: #15803d; }
+.iv-red   { color: #dc2626; }
+.iv-bold  { font-weight: 800; }
+
+/* ── Invoice table ── */
+.iv-fee-table {
+  width: 100%; border-collapse: collapse;
+  margin: 8px 0 14px;
+  border: 2px solid #0f172a;
+  border-radius: 6px; overflow: hidden;
+}
+
+.iv-th {
+  padding: 9px 12px; font-size: 12px; font-weight: 700;
+  color: #0f172a; background: #f1f5f9;
+  border-bottom: 2px solid #0f172a;
+  border-right: 1px solid #cbd5e1; white-space: nowrap;
+}
+.iv-th:last-child { border-right: none; }
+.iv-th-l { text-align: left; }
+.iv-th-r { text-align: right; }
+
+.iv-td {
+  padding: 10px 12px; font-size: 13px; vertical-align: middle;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+.iv-td:last-child { border-right: none; }
+.iv-td-name { font-weight: 700; color: #0f172a; }
+.iv-td-r    { text-align: right; font-weight: 700; white-space: nowrap; }
+
+.iv-tfoot     { background: #fff5f5; border-top: 2px solid #0f172a; }
+.iv-tfoot-lbl { font-size: 13px; font-weight: 700; color: #0f172a; text-transform: uppercase; }
+
+/* ── Amount due box ── */
+.iv-due-box {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #fff1f2; border: 2px solid #dc2626;
+  border-radius: 10px; padding: 14px 18px;
+  margin-bottom: 14px; gap: 16px;
+}
+.iv-due-label {
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.7px;
+  color: #dc2626; margin-bottom: 4px;
+}
+.iv-due-val {
+  font-size: 24px; font-weight: 800;
+  color: #dc2626; letter-spacing: -0.5px;
+}
+.iv-due-msg {
+  font-size: 13px; color: #475569;
+  max-width: 260px; font-style: italic;
+}
+
+/* ── Note ── */
+.iv-note {
+  font-size: 13px; color: #475569;
+  background: #f8fafc; border-left: 3px solid #dc2626;
+  padding: 8px 12px; border-radius: 0 6px 6px 0; margin-bottom: 14px;
+}
+
+/* ── Footer ── */
+.iv-footer {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; gap: 12px;
+  padding-top: 16px; border-top: 2px solid #0f172a;
+}
+.iv-sig { text-align: left; }
+.iv-sig-line { width: 130px; border-top: 1px solid #0f172a; margin-bottom: 4px; }
+.iv-sig-line-r { margin-left: auto; }
+.iv-sig-lbl   { font-size: 13px; color: #475569; }
+.iv-footer-mid { text-align: center; flex: 1; }
+.iv-footer-school { font-size: 13px; font-weight: 700; color: #0f172a; }
+.iv-footer-sub    { font-size: 12px; color: #64748b; margin-top: 2px; }
+.iv-footer-right  { text-align: right; }
+
+/* ── Print ── */
+@media print {
+  body * { visibility: hidden; }
+  .iv-sheet, .iv-sheet * { visibility: visible; }
+  .no-print { display: none !important; }
+  .iv-sheet {
+    position: absolute; top: 0; left: 0;
+    width: 100%; max-height: none;
+    border-radius: 0; box-shadow: none; transform: none;
+  }
+  .iv-topbar { display: none !important; }
+  .iv-body { padding: 0; background: #fff; overflow: visible; }
+  .iv-doc  { border-radius: 0; padding: 16px 24px; }
+  .iv-fee-table, .iv-grid { page-break-inside: avoid; }
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .iv-body { padding: 10px; }
+  .iv-doc  { padding: 16px 12px; }
+  .iv-grid { grid-template-columns: 1fr; }
+  .iv-grid > div:first-child { border-right: none; border-bottom: 2px solid #0f172a; }
+  .iv-header { flex-direction: column; align-items: center; gap: 12px; }
+  .iv-header-right { text-align: center; min-width: unset; width: 100%; }
+  .iv-due-box { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .iv-footer { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .iv-footer-mid, .iv-footer-right { text-align: left; }
+  .iv-sig-line-r { margin-left: 0; }
+}
